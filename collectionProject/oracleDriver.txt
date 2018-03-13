@@ -1,0 +1,6 @@
+#writer\uB97C \uC774\uC6A9
+#Tue Mar 13 20:33:58 KST 2018
+user=gildong
+password=jigigi
+url=jdbc.oracle.thin\:@localhost\:1521\:xe
+driver=oracle.jdbc.driver.OracleDriver
