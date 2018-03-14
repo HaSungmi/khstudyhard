@@ -1,0 +1,72 @@
+package practice2;
+
+import java.util.Scanner;
+
+public class TestBookManager {
+	
+	public static void main(String[] args) {
+		BookManager bm = new BookManager();
+		Scanner sc = new Scanner(System.in);
+
+		int num=0;
+		
+		while (num != 6) {
+			System.out.println("*** 도서 관리 프로그램 ***");
+			System.out.println("1. 새 도서 추가");
+			System.out.println("2. 도서정보 정렬후 출력");
+			System.out.println("3. 도서 삭제");
+			System.out.println("4. 도서 검색출력");
+			System.out.println("5. 전체 출력");
+			System.out.println("6. 끝내기");
+			System.out.println("-----------------------------");
+			System.out.print("메뉴 선택 : ");
+			num = sc.nextInt();
+			
+			switch(num){
+			case 1: bm.addBook(inputBook()); 
+						System.out.println("추가 완료");
+						break;
+			case 2: bm.printBookList(bm.sortedBookList()); break;
+			case 3: System.out.print("삭제할 도서 제목 : ");
+						bm.deleteBook(inputBookTitle());
+						System.out.println("삭제 완료");
+						break;
+			case 4: System.out.print("검색할 도서명 : ");
+						bm.printBook(bm.searchBook(inputBookTitle()));
+						break;
+			case 5: bm.displayAll();
+			case 6: System.out.println("시스템을 종료합니다.");
+			 			break;
+			default : System.out.println("잘못 입력하셨습니다.");
+			}
+			
+		}
+		
+	}
+	
+	public static Book inputBook(){
+		Scanner sc = new Scanner(System.in);
+		Book book = new Book();
+		
+		System.out.print("sNo : ");
+		book.setsNo(sc.next());
+		System.out.print("category : ");
+		book.setCategory(sc.nextInt());
+		sc.nextLine();                       
+		System.out.print("title : ");
+		book.setTitle(sc.nextLine());
+		System.out.print("author : ");
+		book.setAuthor(sc.next());
+		
+		return book;
+		
+	}
+	
+	public static String inputBookTitle(){
+		Scanner sc = new Scanner(System.in);
+		String title = sc.nextLine();
+		
+		return title;
+	}
+
+}

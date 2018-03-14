@@ -1,6 +1,6 @@
 package kh.collection;
 
-public class CustomVector {
+public class CustomVector<E> {
 	private Object[] objArr;
 	private int size;
 	
