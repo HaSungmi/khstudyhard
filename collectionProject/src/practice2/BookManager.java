@@ -56,7 +56,6 @@ public class BookManager {
 		Book[] book = new Book[bookList.size()];
 		AscCategory asc = new AscCategory();
 		
-		///정렬안됨
 		int temp=0;
 		Book booktemp;
 		for(int i=0; i<bookList.size(); i++){
@@ -66,6 +65,7 @@ public class BookManager {
 				if(temp<0){
 					booktemp = bookList.get(j);
 					bookList.set(j, bookList.get(i));
+					bookList.set(i, booktemp);
 				}
 			}
 			book[i] = booktemp;
