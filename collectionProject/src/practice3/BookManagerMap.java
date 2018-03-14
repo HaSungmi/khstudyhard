@@ -31,18 +31,13 @@ public class BookManagerMap {
 	public String searchBook(String bTitle){
 		String result = null;
 		//entrySet이용하는 방법???
-
-		for(int i=0; i<booksMap.size(); i++){
-			if(bTitle.equals(booksMap.get(i).getTitle())){
-				result = booksMap.get(i).getsNo();
-				break;
-			}
-		}
 		
 		return result;
 	}
 	
 	public void displayAll(){
+		// keySet() 사용???
+
 		for(int i=0; i<booksMap.size(); i++){
 			System.out.println(booksMap.get(i).toString());
 		}
@@ -50,8 +45,8 @@ public class BookManagerMap {
 	
 	public Book[] sortedBookMap(){
 		Book[] book = new Book[booksMap.size()];
-		AscCategory asc = new AscCategory();
-		
+		AscTitle asc = new AscTitle();
+
 		int temp=0;
 		Book booktemp;
 		for(int i=0; i<booksMap.size(); i++){
@@ -68,5 +63,15 @@ public class BookManagerMap {
 		}
 		
 		return book;
+	}
+	
+	public void printBookMap(Book[] br){
+		for(Book result:br){
+			System.out.println(result);
+		}
+	}
+	
+	public void printBook(String key){
+		System.out.println(booksMap.get(key));
 	}
 }
