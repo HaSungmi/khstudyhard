@@ -9,7 +9,8 @@ import java.awt.event.KeyListener;
 public class Ex2 extends JFrame implements KeyListener{
 	String sol = null;
 	String[] images = {"up.PNG", "left.PNG", "down.PNG", "right.PNG"};
-	JTextField[] l_name = new JTextField[8];
+//	JTextField[] l_name = new JTextField[8];
+	JLabel[] l_name = new JLabel[8];
 	 JPanel jp;
 	 int count = 0;
 
@@ -24,15 +25,15 @@ public class Ex2 extends JFrame implements KeyListener{
 		
 		jp =  new JPanel();
 		jp.setLayout(new GridLayout(2,4,10,10));
-			
+
 		int num=0;
 		int ranNum = 0;
 		String str = "";
 		while(num<8){
 			ranNum = (int)(Math.random()*4);
 			str += ranNum+"";
-//			jp.add(l_name[num] = new JLabel(new ImageIcon(images[ranNum])));
-			jp.add(l_name[num] = new JTextField(ranNum+""));
+			jp.add(l_name[num] = new JLabel(new ImageIcon(images[ranNum])));
+//			jp.add(l_name[num] = new JTextField(ranNum+""));
 			System.out.println(l_name[num]);
 			l_name[num].addKeyListener(this);
 			num++;
@@ -41,6 +42,9 @@ public class Ex2 extends JFrame implements KeyListener{
 
 		add(jp);
 		setVisible(true);
+		for(int i=0; i<l_name.length; i++){
+			l_name[i].requestFocus();
+		}
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 	}
@@ -54,25 +58,29 @@ public class Ex2 extends JFrame implements KeyListener{
 			case KeyEvent.VK_UP :
 				System.out.println(sol);
 				if(solNum=='0'){
-					l_name[count].setText("정답");
+//					l_name[count].setText("정답");
+					l_name[count].setIcon(new ImageIcon("tiger.PNG"));
 					count++;
 				}
 				break;
 			case KeyEvent.VK_LEFT :
 				if(solNum=='1'){
-					l_name[count].setText("정답");
+//					l_name[count].setText("정답");
+					l_name[count].setIcon(new ImageIcon("tiger.PNG"));
 					count++;
 				}
 				break;
 			case KeyEvent.VK_DOWN :
 				if(solNum=='2'){
-					l_name[count].setText("정답");
+//					l_name[count].setText("정답");
+					l_name[count].setIcon(new ImageIcon("tiger.PNG"));
 					count++;
 				}
 				break;
 			case KeyEvent.VK_RIGHT :
 				if(solNum=='3'){
-					l_name[count].setText("정답");
+//					l_name[count].setText("정답");
+					l_name[count].setIcon(new ImageIcon("tiger.PNG"));
 					count++;
 				}
 				break;
