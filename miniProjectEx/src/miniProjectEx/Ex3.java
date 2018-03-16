@@ -2,11 +2,10 @@ package miniProjectEx;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
-public class Ex2 extends JFrame implements KeyListener{
+public class Ex3 extends JFrame implements KeyListener{
 	String sol = null;
 	String[] images = {"up.PNG", "left.PNG", "down.PNG", "right.PNG"};
 //	JTextField[] l_name = new JTextField[8];
@@ -17,11 +16,11 @@ public class Ex2 extends JFrame implements KeyListener{
 
 	public static void main(String[] args) {
 
-			new Ex2();
+			new Ex3();
 
 	}
 	
-	public Ex2(){
+	public Ex3(){
 		
 		
 		setSize(500,300);
