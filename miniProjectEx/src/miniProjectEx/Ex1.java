@@ -4,7 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 
 public class Ex1 extends JFrame{
-	
+	///lklll
 	public Ex1(){
 		setLocation(200,100);
 		setBounds(100,100,800,600); //(x, y, width, height)
