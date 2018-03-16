@@ -36,7 +36,7 @@ public class TestBookManagerMap {
 			case 4: System.out.print("검색할 도서명 : ");
 						bmm.printBook(bmm.searchBook(inputBookTitle()));
 						break;
-			case 5: bmm.displayAll();
+			case 5: bmm.displayAll(); break;
 			case 6: System.out.println("시스템을 종료합니다.");
 			 			break;
 			default : System.out.println("잘못 입력하셨습니다.");

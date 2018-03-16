@@ -33,7 +33,7 @@ public class BookManager {
 		int idx=-1;
 		
 		for(int i=0; i<bookList.size(); i++){
-			if(bTitle.equals(bookList.get(i))){
+			if(bTitle.equals(bookList.get(i).getTitle())){
 				idx =  i;
 			}
 		}
