@@ -30,7 +30,7 @@ public class BookManagerMap {
 	
 	public String searchBook(String bTitle){
 		String result = null;
-		//entrySet이용하는 방법???
+		//entrySet이용하는 방법??? map 패키지->hashmap보기
 		
 		return result;
 	}

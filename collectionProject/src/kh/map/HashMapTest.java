@@ -70,7 +70,7 @@ public class HashMapTest {
 		Iterator<Entry<Integer, MemberVo>> entryiter = entry.iterator();
 		
 		while(entryiter.hasNext()){
-			System.out.println(entryiter.next());
+			System.out.println(entryiter.next().toString());
 		}
 
 	}
