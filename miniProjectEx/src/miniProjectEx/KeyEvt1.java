@@ -9,6 +9,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import java.awt.event.KeyEvent;
  
+//예제
 class MyFrame implements KeyListener {
     JFrame frm = new JFrame();
     JPanel jp1 = new JPanel();
