@@ -38,7 +38,6 @@ public class Ex3 extends JFrame implements KeyListener{
 			ranNum = (int)(Math.random()*4);
 			str += ranNum+"";
 			jp.add(l_name[num] = new JLabel(new ImageIcon(images[ranNum])));
-			System.out.println(l_name[num]);
 			l_name[num].addKeyListener(this);
 			num++;
 		}
