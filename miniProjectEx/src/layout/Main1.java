@@ -10,6 +10,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 public class Main1 extends JFrame implements MouseListener{
+	JFrame jf;
 	CardLayout card;
 	 JPanel jp1;
 	 JPanel jp2;
@@ -20,7 +21,7 @@ public class Main1 extends JFrame implements MouseListener{
 	}
 	
 	public Main1(){
-		JFrame jf = new JFrame();
+		jf = new JFrame();
 		
 
 		jf.setBounds(100,100,500,300);
@@ -44,7 +45,13 @@ public class Main1 extends JFrame implements MouseListener{
 	@Override
 	public void mouseClicked(MouseEvent arg0) {
 		// TODO Auto-generated method stub
-
+		if(arg0.getClickCount()%3==1){
+			card.next(jp1.getParent());
+		}else if(arg0.getClickCount()%3==2){
+			card.next(jp2.getParent());
+		}else if(arg0.getClickCount()%3==0){
+			card.show(jp3.getParent(),"1");
+		}
 		
 	}
 
