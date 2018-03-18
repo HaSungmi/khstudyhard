@@ -2,25 +2,25 @@ package miniProjectEx;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
-public class Ex2 extends JFrame implements KeyListener{
+public class Ex3 extends JFrame implements KeyListener{
 	String sol = null;
 	String[] images = {"up.PNG", "left.PNG", "down.PNG", "right.PNG"};
-	JPanel jp;
-	int count = 0;
+//	JTextField[] l_name = new JTextField[8];
 	JLabel[] l_name;
-	int countNum=0;
+	 JPanel jp;
+	 int count = 0;
+	 int countNum=0;
 
 	public static void main(String[] args) {
 
-			new Ex2();
+			new Ex3();
 
 	}
 	
-	public Ex2(){
+	public Ex3(){
 		
 		
 		setSize(500,300);
@@ -38,18 +38,12 @@ public class Ex2 extends JFrame implements KeyListener{
 			ranNum = (int)(Math.random()*4);
 			str += ranNum+"";
 			jp.add(l_name[num] = new JLabel(new ImageIcon(images[ranNum])));
-			System.out.println(l_name[num]);
 			l_name[num].addKeyListener(this);
 			num++;
 		}
 		sol = str;
 		
 		add(jp);
-		setVisible(true);
-		
-		for(int i=0; i<l_name.length; i++){
-			l_name[i].requestFocus();
-		}
 
 	}
 	
