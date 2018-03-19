@@ -3,7 +3,7 @@ package miniProjectEx;
 import javax.swing.*;
 import java.awt.*;
 
-public class Ex1 extends JFrame{
+public class Ex1 extends JPanel{
 
 	public Ex1(){
 		setLocation(200,100);
@@ -116,8 +116,8 @@ public class Ex1 extends JFrame{
 		
 		add(base);
 		
-		setVisible(true);
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+//		setVisible(true);
+//		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
 
 	public static void main(String[] args) {
