@@ -20,36 +20,33 @@ public class Ex3 extends JFrame implements KeyListener {
 	static int life = 3; // 라이프
 	JPanel jp; // 그리드레이아웃을 담을 패널
 	JPanel base;//가장 아래 베이스 패널-보더레이아웃
-	JPanel bar;
+	JPanel bar;//게임 화면 위에 위치-> 타이머,남은 생명 나타냄
 	static int count = 0; // 입력 횟수
 	static int count2 = 1; // 게임 반복 횟수
+	static int time = 20; //게임 제한 초
 	JLabel timeLabel, lifeLabel;
-	int countNum = 0;
 
 	// 실행용 메인메소드
 	public static void main(String[] args) {
-		ex3.run();
+		ex3.gameRun();
 	}
 
 	// 실행 메소드
-	public void run() {
+	public void gameRun() {
 
 		setSize(700, 400);
 		setTitle("리듬게임/ [남은 라이프 : " + life + "개] [게임횟수 : "+count2+"번]");
 		
 		base = new JPanel(new BorderLayout());
 		
-		bar = new  JPanel(new FlowLayout());
-		bar.add(timeLabel = new JLabel("타이머"));
-		bar.add(lifeLabel = new JLabel("생명"));
+		bar = new  JPanel(new FlowLayout(FlowLayout.RIGHT));
+		bar.add(timeLabel = new JLabel("남은 시간 : "+time));
+		bar.add(new JLabel("|"));
+		bar.add(lifeLabel = new JLabel("남은 라이프 : " + life + "개"));
 		jp = new JPanel();
 		jp.setLayout(new GridLayout(3, 5, 10, 10));
 		
-		if(countNum ==1){
-			timeLabel.setText("남은 라이프 : " + life + "개");
-		}else if(countNum ==2){
-			timeLabel.setText("남은 라이프 : " + life + "개");
-		}
+
 
 		int num = 0;
 		int ranNum = 0;
@@ -72,9 +69,11 @@ public class Ex3 extends JFrame implements KeyListener {
 		for (int i = 0; i < l_name.length; i++) {
 			l_name[i].requestFocus();
 		}
+		if(time==20){
+			new Timer().start();
+		}
+
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		
-		countNum++;
 
 	}
 
@@ -100,12 +99,13 @@ public class Ex3 extends JFrame implements KeyListener {
 						JOptionPane.showMessageDialog(null, "게임이 종료되었습니다.");
 						System.exit(0);
 					}
-					run();
+					gameRun();
 					setTitle("리듬게임/ [남은 라이프 : " + life + "개] [게임횟수 : "+count2+"번]");	//게임횟수 초기화를 위한 구문
 
 				}
 			} else { // 틀릴경우
 				life--;
+				lifeLabel.setText("남은 라이프 : " + life + "개");
 				setTitle("리듬게임/ [남은 라이프 : " + life + "개] [게임횟수 : "+count2+"번]"); // title은 자동으로 바뀌지 않아서 다시 setTitle
 				if (life == 0) { // 라이프가 0일 경우
 					JOptionPane.showMessageDialog(null, "라이프를 모두 소진하셨습니다.");
@@ -128,12 +128,13 @@ public class Ex3 extends JFrame implements KeyListener {
 						JOptionPane.showMessageDialog(null, "게임이 종료되었습니다.");
 						System.exit(0);
 					}
-					run();
+					gameRun();
 					setTitle("리듬게임/ [남은 라이프 : " + life + "개] [게임횟수 : "+count2+"번]");
 
 				}
 			} else {
 				life--;
+				lifeLabel.setText("남은 라이프 : " + life + "개");
 				setTitle("리듬게임/ [남은 라이프 : " + life + "개] [게임횟수 : "+count2+"번]");
 
 				if (life == 0) {
@@ -156,11 +157,12 @@ public class Ex3 extends JFrame implements KeyListener {
 						JOptionPane.showMessageDialog(null, "게임이 종료되었습니다.");
 						System.exit(0);
 					}
-					run();
+					gameRun();
 					setTitle("리듬게임/ [남은 라이프 : " + life + "개] [게임횟수 : "+count2+"번]");
 				}
 			} else {
 				life--;
+				lifeLabel.setText("남은 라이프 : " + life + "개");
 				setTitle("리듬게임/ [남은 라이프 : " + life + "개] [게임횟수 : "+count2+"번]");
 				if (life == 0) {
 					JOptionPane.showMessageDialog(null, "라이프를 모두 소진하셨습니다.");
@@ -183,12 +185,13 @@ public class Ex3 extends JFrame implements KeyListener {
 						JOptionPane.showMessageDialog(null, "게임이 종료되었습니다.");
 						System.exit(0);
 					}
-					run();
+					gameRun();
 					setTitle("리듬게임/ [남은 라이프 : " + life + "개] [게임횟수 : "+count2+"번]");
 
 				}
 			} else {
 				life--;
+				lifeLabel.setText("남은 라이프 : " + life + "개");
 				setTitle("리듬게임/ [남은 라이프 : " + life + "개] [게임횟수 : "+count2+"번]");
 				if (life == 0) {
 					JOptionPane.showMessageDialog(null, "라이프를 모두 소진하셨습니다.");
@@ -214,6 +217,30 @@ public class Ex3 extends JFrame implements KeyListener {
 	public void keyTyped(KeyEvent e) {
 		// TODO Auto-generated method stub
 
+	}
+	
+	class Timer extends Thread{
+		@Override
+		public void run(){
+			time = 20;
+			while(true){
+				try {
+					Thread.sleep(1000);
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				time--;
+				if(time==0){
+					timeLabel.setText("남은 시간 : "+time);
+					JOptionPane.showMessageDialog(null, "게임이 종료되었습니다.");
+					System.exit(0);
+					break;
+				}
+				timeLabel.setText("남은 시간 : "+time);
+			}
+
+		}
 	}
 
 }
