@@ -52,7 +52,7 @@ public class Ex3 extends JFrame implements KeyListener {
 
 		bar.add(timeP = new JProgressBar());
 		timeP.setMinimum(0);
-		timeP.setMaximum(20);
+		timeP.setMaximum(80);
 		timeP.setValue(time);
 		timeP.setForeground(Color.DARK_GRAY);
 		timeP.setBorderPainted(false);
@@ -121,7 +121,7 @@ public class Ex3 extends JFrame implements KeyListener {
 				if (count >= 15) {
 					JOptionPane.showMessageDialog(null, "남은 횟수는 " + (3 - count2) + "회 입니다.");
 					synchronized(timer){
-						timer.notify();
+						timer.notify();//새로운 턴 게임 시작할때 스레드 다시 시작
 					}
 					count = 0;
 					count2++;
@@ -284,15 +284,15 @@ public class Ex3 extends JFrame implements KeyListener {
 	class Timer extends Thread{
 		@Override
 		public void run(){
-			time = 20;
+			time = 80;
 			while(true){
 				try {
-					if (count == 15) {
+					if (count == 15 || life==0) {//게임 한턴 끝날때 
 						synchronized(timer){
-							timer.wait();
+							timer.wait();//시간 멈춤=>JOption확인 누르는 시간동안
 						}
 					}
-						Thread.sleep(1000);
+						Thread.sleep(250);
 
 				} catch (InterruptedException e) {
 					// TODO Auto-generated catch block
